@@ -1,2 +1,16 @@
-<p><%=todo_item.content%></p>
-<%= link_to "Delete", todo_list_todo_item_path(@todo_list, todo_item.id), method: :delete, data: {confirm: "Are you sure?"} %> 
+<div class="">
+  <div class="">
+    <%= link_to "Mark As Complete", complete_todo_list_todo_item_path(@todo_list, todo_item.id), method: :patch %>
+  </div>
+  <div>
+      <% if todo_item.completed? %>
+  <p><strike><%= todo_item.content %></strike></p>.
+  <%else %>
+  <p><%= todo_item.content %></p>.
+  <%end%>
+</div>
+<div class="">
+  <%= link_to "Delete", todo_list_todo_item_path(@todo_list, todo_item.id), method: :delete, data: {confirm: "Are you sure?"} %>
+</div>
+
+</div>
